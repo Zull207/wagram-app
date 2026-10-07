@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Dark mode via class (.dark) — Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- Base reset for hybrid app ---- */
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    ui-sans-system,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    sans-serif;
+  background-color: #e7e5e4;
+  color: #1c1917;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.dark body {
+  background-color: #0c0a09;
+}
+
+/* Slim premium scrollbar for chat + feeds */
+.nice-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.nice-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.nice-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+}
+
+/* Hide scrollbar for horizontal stories row */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* IG gradient text helper */
+.text-ig-gradient {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* WA chat wallpaper dot pattern */
+.chat-wallpaper {
+  background-color: #efeae2;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.dark .chat-wallpaper {
+  background-color: #0b141a;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+/* ---- html5-qrcode camera viewport: blend ke layout app ---- */
+.qr-viewport {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.qr-viewport video {
+  border-radius: 1rem;
+  object-fit: cover;
+}
+.qr-viewport #qr-shaded-region {
+  border-radius: 1rem;
+}
+/* Sembunyikan credit/branding bawaan lib agar bersih */
+.qr-viewport img[alt="Info icon"] {
+  display: none;
+}
