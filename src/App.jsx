@@ -37,7 +37,7 @@ import {
 // PRODUCTION NETWORKING — tanpa hardcoded localhost.
 // Isi VITE_SERVER_URL di hosting/APK build, mis. https://wagram.onrender.com
 // ------------------------------------------------------------------
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || window.location.origin;
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || "https://wagram-app.vercel.app/";
 const socket = io(SERVER_URL, { autoConnect: true });
 
 const ACC_KEY = "wagram_accounts_v1";
